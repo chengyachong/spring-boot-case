@@ -15,4 +15,10 @@ public class EmployeeController {
     public Employee getEmployee(@PathVariable("id") Integer id){
        return employeeService.getEmployee(id);
     }
+
+  @GetMapping("/emp")
+    public Employee update(Employee employee){
+        Employee employee1 =  employeeService.updateEmp(employee);
+  return employee1;
+     }
 }

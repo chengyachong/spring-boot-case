@@ -3,6 +3,7 @@ package com.cyc.bootcase.service;
 import com.cyc.bootcase.bean.Employee;
 import com.cyc.bootcase.mapper.EmployeeMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
@@ -25,5 +26,19 @@ public class EmployeeService {
     public Employee getEmployee(Integer id){
         System.out.println("查询"+id);
        return  employeeMapper.getEmpById(id);
+    }
+
+    /**
+     * @cachePut 即调用方法，又更新缓存数据
+     * @param employee
+     * @return
+     *
+     * 运行时机：先调用目标方法 然后将目标方法的结果缓存起来
+     */
+    @CachePut(value = "emp")
+    public Employee updateEmp(Employee employee){
+        System.out.println("员工更信息"+employee);
+        employeeMapper.updateEmp(employee);
+        return employee;
     }
 }
