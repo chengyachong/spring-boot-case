@@ -1,6 +1,8 @@
-package com.atguigu.cache;
+package com.cyc.bootcase.bean;
 
-public class Employee {
+import java.io.Serializable;
+
+public class Employee implements Serializable {
 	
 	private Integer id;
 	private String lastName;

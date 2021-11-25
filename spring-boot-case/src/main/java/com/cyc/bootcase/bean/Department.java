@@ -1,4 +1,4 @@
-package com.atguigu.cache;
+package com.cyc.bootcase.bean;
 
 public class Department {
 	
